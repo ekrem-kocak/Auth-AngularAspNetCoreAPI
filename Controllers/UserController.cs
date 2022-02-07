@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using AspNetCoreWebApi.DTO;
 using AspNetCoreWebApi.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AspNetCoreWebApi.Controllers
 {
@@ -15,11 +20,13 @@ namespace AspNetCoreWebApi.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IConfiguration _configuration;
 
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _configuration = configuration;
         }
 
         [HttpPost("register")]
@@ -56,10 +63,29 @@ namespace AspNetCoreWebApi.Controllers
             {
                 return Ok(new
                 {
-                    token = "token..."
+                    token = CreateJwtToken(user)
                 });
             }
-            return Unauthorized();
+            return Unauthorized(new { message = "Password is incorrect" });
+        }
+
+        private string CreateJwtToken(User user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration.GetSection("AppSettings:SecretKey").Value);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]{
+                    new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                    new Claim(ClaimTypes.Name,user.Name),
+                }),
+                Expires = DateTime.UtcNow.AddDays(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreWebApi.Data;
 using AspNetCoreWebApi.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ namespace AspNetCoreWebApi.Controllers
 {
     [ApiController]
     [Route("myapi/[controller]")]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly MyContext _myContext;
@@ -21,6 +23,7 @@ namespace AspNetCoreWebApi.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _myContext.Products.ToListAsync();

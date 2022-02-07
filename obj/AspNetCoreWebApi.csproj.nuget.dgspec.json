@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj": {}
+    "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj": {
+    "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj",
         "projectName": "AspNetCoreWebApi",
-        "projectPath": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj",
+        "projectPath": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\AspNetCoreWebApi.csproj",
         "packagesPath": "C:\\Users\\Ekrem\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\obj\\",
+        "outputPath": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ekrem\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -55,6 +59,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.15.1, )"
             }
           },
           "imports": [

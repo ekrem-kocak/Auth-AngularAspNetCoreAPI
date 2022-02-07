@@ -60,3 +60,10 @@ C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\obj\Debug\net5.0\AspNetC
 C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\obj\Debug\net5.0\AspNetCoreWebApi.genruntimeconfig.cache
 C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Ekrem\Desktop\Software\github\AspNetCoreWebApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
