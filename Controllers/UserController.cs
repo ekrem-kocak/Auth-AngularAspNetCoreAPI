@@ -14,10 +14,12 @@ namespace AspNetCoreWebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public UserController(UserManager<User> userManager)
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpPost("register")]
@@ -39,6 +41,25 @@ namespace AspNetCoreWebApi.Controllers
             }
 
             return BadRequest(result.Errors);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserForLoginDTO model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            if (user == null)
+                return BadRequest(new { message = "Username is incorrect" });
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+
+            if (result.Succeeded)
+            {
+                return Ok(new
+                {
+                    token = "token..."
+                });
+            }
+            return Unauthorized();
         }
     }
 }
