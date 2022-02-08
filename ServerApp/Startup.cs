@@ -72,6 +72,16 @@ namespace AspNetCoreWebApi
                     ValidateAudience = false,
                 };
             });
+
+            services.AddCors(x =>
+            {
+                x.AddDefaultPolicy(options =>
+                {
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,6 +98,7 @@ namespace AspNetCoreWebApi
 
             app.UseRouting();
 
+            app.UseCors();
             // --
             app.UseAuthentication();
 
