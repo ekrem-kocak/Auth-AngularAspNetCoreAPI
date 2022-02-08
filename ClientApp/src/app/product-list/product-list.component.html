@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prd of products" [class.bg-secondary]="!prd.isActive">
+            <th scope="row">{{prd.productId}}</th>
+            <td>{{prd.name}}</td>
+            <td>{{prd.price}}</td>
+            <td>
+              <button class="btn btn-sm btn-primary me-2" (click)="OnUpdateState(prd)">Update</button>
+              <button class="btn btn-sm btn-danger" (click)="openDialog(prd)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-md-6">
+      <app-product-edit-form [selectedProduct]="selectedProduct" [products]="products"></app-product-edit-form>
+      <app-product-create-form [products]="products"></app-product-create-form>
+    </div>
+  </div>
+</div>

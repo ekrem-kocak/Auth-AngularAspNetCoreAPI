@@ -1,0 +1,6 @@
+<h1 mat-dialog-title>{{data.selectedProduct.name.toUpperCase()}} ürününü silmek istediğinize emin misiniz?</h1>
+<div mat-dialog-content>Bu işlem geri alınamaz!</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="deleteProduct(data.selectedProduct)" mat-dialog-close>Sil</button>
+  <button mat-raised-button color="primary" mat-dialog-close>İptal</button>
+</div>

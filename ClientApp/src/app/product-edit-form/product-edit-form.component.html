@@ -1,0 +1,19 @@
+<form [formGroup]="productUpdateForm" (ngSubmit)="updateProduct()" *ngIf="selectedProduct" class="mb-4">
+  <h2 class="badge bg-info" style="font-size: 24px;">Product Update Form</h2>
+  <input type="hidden" formControlName="productId">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="text" class="form-control" formControlName="price">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" [class.bg-info]="productUpdateForm.value  .isActive==true"
+      formControlName="isActive">
+    <label class="form-check-label">Active</label>
+  </div>
+  <button type="submit" class="btn btn-info" [disabled]="productUpdateForm.invalid">Güncelle</button>
+  <hr>
+</form>

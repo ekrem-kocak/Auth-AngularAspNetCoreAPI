@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">MyAPP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="authService.isLoggedIn()">
+        <li class="nav-item">
+          <span class="nav-link"> {{authService.decodedToken.unique_name}} </span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+      <form class="d-flex" [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="!authService.isLoggedIn()">
+        <input class="form-control me-2" type="text" placeholder="Username" formControlName="username">
+        <input class="form-control me-2" type="password" placeholder="Password" formControlName="password">
+        <button class="btn btn-success" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>

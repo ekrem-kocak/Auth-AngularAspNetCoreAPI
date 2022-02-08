@@ -1,0 +1,16 @@
+<form [formGroup]="productCreateForm" (ngSubmit)="createProduct()">
+  <h2 class="badge bg-primary" style="font-size: 24px;">Product Create Form</h2>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="text" class="form-control" formControlName="price">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" formControlName="isActive">
+    <label class="form-check-label">Active</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="productCreateForm.invalid">Add</button>
+</form>
