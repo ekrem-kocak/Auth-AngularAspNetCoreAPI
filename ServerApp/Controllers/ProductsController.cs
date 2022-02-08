@@ -88,6 +88,7 @@ namespace AspNetCoreWebApi.Controllers
             var p = await _myContext.Products.FindAsync(id);
             p.Name = entity.Name;
             p.Price = entity.Price;
+            p.IsActive = entity.IsActive;
 
             try
             {
