@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserForLogin } from '../Model/UserForLogin.model';
 import { UserForRegister } from '../Model/UserForRegister.model';
+import { AlertifyService } from '../services/alertify.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -12,17 +13,22 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  error: string[] = [];
+  error: any[] = [];
 
   signUpForm: FormGroup = new FormGroup({
-    name: new FormControl("", Validators.required),
-    password: new FormControl("", [Validators.required]),
-    userName: new FormControl("", Validators.required),
+    name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+    password: new FormControl("", [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@_$!%*?&])[A-Za-z\d$@$!%*?&].{0,}')]),
+    userName: new FormControl("", [Validators.required, Validators.pattern('^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]),
     email: new FormControl("", [Validators.required, Validators.email]),
     gender: new FormControl("male", Validators.required),
   })
 
-  constructor(public authService: AuthService, private router: Router) { }
+  get name() { return this.signUpForm.get('name') };
+  get password() { return this.signUpForm.get('password') };
+  get userName() { return this.signUpForm.get('userName') };
+  get email() { return this.signUpForm.get('email') };
+
+  constructor(public authService: AuthService, private router: Router, private alertifyService: AlertifyService) { }
 
   ngOnInit(): void {
   }
@@ -43,6 +49,7 @@ export class HomeComponent implements OnInit {
       )).subscribe(next => {
         console.log(next);
         localStorage.setItem('token', next.token);
+        this.alertifyService.success("Welcome " + this.authService.decodedToken.unique_name);
         this.router.navigate(["/products"]);
       })
     }, err => {

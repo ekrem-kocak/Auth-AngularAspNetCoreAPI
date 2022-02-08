@@ -1,0 +1,10 @@
+p {
+  margin: 0;
+}
+
+.form-control.ng-invalid.ng-dirty {
+  border-left: 5px solid #fe024d;
+}
+.form-control.ng-valid.ng-dirty {
+  border-left: 5px solid #50c878;
+}

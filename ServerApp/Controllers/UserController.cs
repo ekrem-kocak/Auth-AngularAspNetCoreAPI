@@ -78,7 +78,7 @@ namespace AspNetCoreWebApi.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]{
                     new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                    new Claim(ClaimTypes.Name,user.Name),
+                    new Claim(ClaimTypes.Name,user.UserName),
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

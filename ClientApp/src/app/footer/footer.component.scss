@@ -1,0 +1,40 @@
+footer{
+  position: fixed;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.fab, .far{
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.fa-linkedin-in{
+  color: #0274B3;
+  transition: all 0.3s ease;
+  &:hover{
+    background-color: #0274B3;
+    color: #fff;
+  }
+}
+.fa-github{
+  color: #000;
+  transition: all 0.35s ease;
+  &:hover{
+    background-color: #000;
+    color: #f7f7f7;
+  }
+}
+
+.fa-envelope-open{
+  color: #01BDFE;
+  transition: all 0.35s ease;
+  &:hover{
+    background-color: #01BDFE;
+    color: #fff;
+  }
+}
+

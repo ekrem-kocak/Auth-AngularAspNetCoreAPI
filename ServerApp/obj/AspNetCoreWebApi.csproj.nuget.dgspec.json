@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj": {}
+    "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj": {
+    "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj",
         "projectName": "AspNetCoreWebApi",
-        "projectPath": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj",
+        "projectPath": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\AspNetCoreWebApi.csproj",
         "packagesPath": "C:\\Users\\Ekrem\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\obj\\",
+        "outputPath": "C:\\Users\\Ekrem\\Desktop\\Software\\github\\AspNetCoreWebApi\\ServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ekrem\\AppData\\Roaming\\NuGet\\NuGet.Config"
