@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="!loading else loadingtemp">
     <div class="col-md-6" *ngIf="!authService.isLoggedIn() else homePage">
 
       <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="my-3">
@@ -67,9 +67,6 @@
       </form>
 
     </div>
-    <div class="row">
-
-    </div>
   </div>
 </div>
 
@@ -77,4 +74,8 @@
   <div class="col-12 text-center">
     <h1>HOME PAGE</h1>
   </div>
+</ng-template>
+
+<ng-template #loadingtemp>
+  <app-loading></app-loading>
 </ng-template>

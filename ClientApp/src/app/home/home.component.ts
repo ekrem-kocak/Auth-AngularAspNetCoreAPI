@@ -14,6 +14,7 @@ import { AuthService } from '../services/auth.service';
 export class HomeComponent implements OnInit {
 
   error: any[] = [];
+  loading: boolean = false;
 
   signUpForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(5)]),
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   signUp() {
-    this.authService.loading = true;
+    this.loading = true;
     var newUser: UserForRegister = new UserForRegister(
       this.signUpForm.get('name')?.value,
       this.signUpForm.get('password')?.value,
@@ -51,11 +52,11 @@ export class HomeComponent implements OnInit {
         console.log(next);
         localStorage.setItem('token', next.token);
         this.alertifyService.success("Welcome " + this.authService.decodedToken.unique_name);
-        this.authService.loading = false;
+        this.loading = false;
         this.router.navigate(["/products"]);
       })
     }, err => {
-      this.authService.loading = false;
+      this.loading = false;
       console.log(err.error);
       this.error = err.error;
     })
