@@ -1,12 +1,12 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">MyAPP</a>
+    <a class="navbar-brand" routerLink="/" (click)="closeNav()">MyAPP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
         </li>
       </ul>

@@ -33,7 +33,7 @@ namespace AspNetCoreWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MyContext>(x => x.UseSqlite("Data Source=database.db"));
+            services.AddDbContext<MyContext>(x => x.UseSqlite(Configuration.GetSection("AppSettings:DataSource").Value));
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<MyContext>();
             services.Configure<IdentityOptions>(options =>

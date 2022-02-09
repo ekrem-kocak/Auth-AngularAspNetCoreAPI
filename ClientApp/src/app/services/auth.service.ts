@@ -14,8 +14,9 @@ const helper = new JwtHelperService();
 })
 export class AuthService {
 
-  private readonly apiUrl = "http://localhost:5000/myapi/user/"
+  private readonly apiUrl = "https://myapi.ekrem-kocak1.cf/myapi/user/"
 
+  loading: boolean = false;
   decodedToken: any;
 
   constructor(private http: HttpClient) { }

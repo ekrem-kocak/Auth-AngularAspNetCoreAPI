@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'ClientAppTekrar';
 
   private readonly token = localStorage.getItem('token');
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.decodedToken = helper.decodeToken(this.token!);

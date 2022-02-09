@@ -1,0 +1,10 @@
+.spinner {
+  width: 100%;
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  .spinner-border{
+    width:  60px;
+    height: 60px;
+  }
+}

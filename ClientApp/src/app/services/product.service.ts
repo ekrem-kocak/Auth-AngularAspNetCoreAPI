@@ -8,7 +8,7 @@ import { Product } from '../Model/Product.model';
 })
 export class ProductService {
 
-  private readonly apiUrl = "http://localhost:5000/myapi/"
+  private readonly apiUrl = "https://myapi.ekrem-kocak1.cf/myapi/"
   private readonly token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) { }

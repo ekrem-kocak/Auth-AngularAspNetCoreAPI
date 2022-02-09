@@ -1,3 +1,7 @@
 <navbar></navbar>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!authService.loading; else loading"></router-outlet>
 <app-footer></app-footer>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

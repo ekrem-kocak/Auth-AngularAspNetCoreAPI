@@ -1,9 +1,6 @@
 footer{
-  position: fixed;
-  background-color: #fff;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  position: sticky;
+  top: 100%;
 }
 
 .fab, .far{
